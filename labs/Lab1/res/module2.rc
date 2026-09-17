@@ -1,0 +1,20 @@
+#pragma code_page(65001)
+
+#include <windows.h>
+#include "../src/resource.h"
+
+IDD_DIALOG_MOD2 DIALOGEX 0, 0, 240, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Робота 2 - вибір числа"
+FONT 9, "Segoe UI"
+BEGIN
+LTEXT       "Вибране число:", -1, 10, 12, 75, 12
+LTEXT       "1", IDC_VALUE_MOD2, 90, 12, 40, 12
+
+SCROLLBAR   IDC_SCROLL_MOD2,
+10, 32, 220, 14,
+SBS_HORZ
+
+DEFPUSHBUTTON "Так", IDOK, 68, 68, 45, 15
+PUSHBUTTON    "Відміна", IDCANCEL, 125, 68, 50, 15
+END

@@ -1,0 +1,19 @@
+#pragma code_page(65001)
+
+#include <windows.h>
+#include "../src/resource.h"
+
+IDD_DIALOG_MOD1 DIALOGEX 0, 0, 230, 90
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Робота 1 - введення тексту"
+FONT 9, "Segoe UI"
+BEGIN
+LTEXT           "Введіть текст:", -1, 10, 12, 80, 12
+
+EDITTEXT        IDC_EDIT_MOD1,
+10, 28, 210, 14,
+ES_AUTOHSCROLL
+
+DEFPUSHBUTTON   "Так", IDOK, 65, 60, 45, 15
+PUSHBUTTON      "Відміна", IDCANCEL, 120, 60, 50, 15
+END
