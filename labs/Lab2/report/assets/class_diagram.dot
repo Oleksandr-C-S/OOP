@@ -1,0 +1,33 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad=0.2, nodesep=0.35, ranksep=0.55];
+  node [shape=record, fontname="DejaVu Sans", fontsize=10];
+  edge [fontname="DejaVu Sans", fontsize=9];
+
+  Shape [label="{Shape (abstract)|# xs1_, ys1_, xs2_, ys2_|+ Set()\l+ Show() = 0\l}"];
+  PointShape [label="{PointShape|+ Show()\l}"];
+  LineShape [label="{LineShape|+ Show()\l}"];
+  RectShape [label="{RectShape|+ Show()\l}"];
+  EllipseShape [label="{EllipseShape|+ Show()\l}"];
+
+  Shape -> PointShape [arrowhead=empty];
+  Shape -> LineShape [arrowhead=empty];
+  Shape -> RectShape [arrowhead=empty];
+  Shape -> EllipseShape [arrowhead=empty];
+
+  Editor [label="{Editor (abstract)|+ OnLBdown() = 0\l+ OnLBup() = 0\l+ OnMouseMove() = 0\l+ OnPaint() = 0\l}"];
+  ShapeEditor [label="{ShapeEditor|# Shape** shapes_\l# dragging_\l+ OnLBdown()\l+ OnLBup()\l+ OnMouseMove()\l+ OnPaint()\l}"];
+  PointEditor [label="{PointEditor|+ OnLBdown()\l}"];
+  LineEditor [label="{LineEditor|# CreateShape()\l}"];
+  RectEditor [label="{RectEditor|# CreateShape()\l}"];
+  EllipseEditor [label="{EllipseEditor|# CreateShape()\l}"];
+
+  Editor -> ShapeEditor [arrowhead=empty];
+  ShapeEditor -> PointEditor [arrowhead=empty];
+  ShapeEditor -> LineEditor [arrowhead=empty];
+  ShapeEditor -> RectEditor [arrowhead=empty];
+  ShapeEditor -> EllipseEditor [arrowhead=empty];
+
+  Manager [label="{ShapeObjectsEditor|Shape* pcshape_[116]\lShapeEditor* currentEditor_\l|+ StartPointEditor()\l+ StartLineEditor()\l+ StartRectEditor()\l+ StartEllipseEditor()\l+ OnInitMenuPopup()\l}"];
+  Manager -> ShapeEditor [style=dashed, label="uses"];
+  Manager -> Shape [style=dashed, label="stores"];
+}
