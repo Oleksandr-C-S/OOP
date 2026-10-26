@@ -6,10 +6,10 @@ namespace
     RECT NormalizeRect(long x1, long y1, long x2, long y2)
     {
         RECT r{};
-        r.left = static_cast<LONG>(std::min(x1, x2));
-        r.top = static_cast<LONG>(std::min(y1, y2));
-        r.right = static_cast<LONG>(std::max(x1, x2));
-        r.bottom = static_cast<LONG>(std::max(y1, y2));
+        r.left = static_cast<LONG>((std::min)(x1, x2));
+        r.top = static_cast<LONG>((std::min)(y1, y2));
+        r.right = static_cast<LONG>((std::max)(x1, x2));
+        r.bottom = static_cast<LONG>((std::max)(y1, y2));
 
         if (r.right == r.left) ++r.right;
         if (r.bottom == r.top) ++r.bottom;
