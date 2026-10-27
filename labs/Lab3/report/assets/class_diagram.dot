@@ -1,0 +1,34 @@
+digraph Lab3Classes {
+  graph [rankdir=TB, bgcolor="white", nodesep=0.35, ranksep=0.55];
+  node [shape=record, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9];
+
+  Shape [label="{Shape|# xs1_, ys1_, xs2_, ys2_|+ Set()\l+ Show() = 0\l}"];
+  PointShape [label="{PointShape|+ Show()\l}"];
+  LineShape [label="{LineShape|+ Show()\l}"];
+  RectShape [label="{RectShape|+ Show()\l}"];
+  EllipseShape [label="{EllipseShape|+ Show()\l}"];
+
+  Editor [label="{Editor|+ OnLBdown() = 0\l+ OnLBup() = 0\l+ OnMouseMove() = 0\l+ OnPaint() = 0\l}"];
+  ShapeEditor [label="{ShapeEditor|# shapes_\l# shapeCount_\l|+ OnLBdown()\l+ OnLBup()\l+ OnMouseMove()\l+ OnPaint()\l}"];
+  PointEditor [label="{PointEditor}"];
+  LineEditor [label="{LineEditor}"];
+  RectEditor [label="{RectEditor}"];
+  EllipseEditor [label="{EllipseEditor}"];
+
+  SOE [label="{ShapeObjectsEditor|- pcshape_[117]\l- currentEditor_\l- toolbar_\l|+ OnCreate()\l+ OnSize()\l+ OnNotify()\l+ Start...Editor()\l}"];
+
+  PointShape -> Shape [arrowhead=empty];
+  LineShape -> Shape [arrowhead=empty];
+  RectShape -> Shape [arrowhead=empty];
+  EllipseShape -> Shape [arrowhead=empty];
+
+  ShapeEditor -> Editor [arrowhead=empty];
+  PointEditor -> ShapeEditor [arrowhead=empty];
+  LineEditor -> ShapeEditor [arrowhead=empty];
+  RectEditor -> ShapeEditor [arrowhead=empty];
+  EllipseEditor -> ShapeEditor [arrowhead=empty];
+
+  SOE -> ShapeEditor [label=" currentEditor_", arrowhead=vee];
+  SOE -> Shape [label=" stores", arrowhead=vee];
+}
