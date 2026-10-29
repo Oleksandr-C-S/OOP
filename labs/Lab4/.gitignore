@@ -1,0 +1,16 @@
+.vs/
+x64/
+Debug/
+Release/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.user
+*.suo
+*.vcxproj.user
+*.aps
+*.tmp
