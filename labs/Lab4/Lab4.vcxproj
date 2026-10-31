@@ -99,7 +99,9 @@
     <ResourceCompile Include="res\Lab4.rc" />
   </ItemGroup>
 
-  <None Include="res\toolbar.bmp" />
+  <ItemGroup>
+    <None Include="res\toolbar.bmp" />
+  </ItemGroup>
 
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
