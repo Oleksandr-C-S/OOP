@@ -1,0 +1,20 @@
+#pragma code_page(65001)
+#include <windows.h>
+#include "../src/my_table_resources.h"
+
+IDD_MYTABLE DIALOGEX 0, 0, 390, 245
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Таблиця об'єктів"
+FONT 9, "Segoe UI"
+BEGIN
+    LTEXT           "Назва", -1, 8, 8, 120, 10
+    LTEXT           "x1", -1, 155, 8, 30, 10
+    LTEXT           "y1", -1, 210, 8, 30, 10
+    LTEXT           "x2", -1, 265, 8, 30, 10
+    LTEXT           "y2", -1, 320, 8, 30, 10
+
+    LISTBOX         IDC_TABLE_LIST, 8, 22, 374, 190,
+                    LBS_NOINTEGRALHEIGHT | LBS_USETABSTOPS | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP | WS_BORDER
+
+    DEFPUSHBUTTON   "Закрити", IDCANCEL, 316, 220, 66, 18
+END
