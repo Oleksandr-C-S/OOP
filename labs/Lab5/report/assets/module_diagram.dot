@@ -1,0 +1,16 @@
+digraph Lab5Modules {
+    rankdir=LR;
+    graph [fontname="Arial", bgcolor="white"];
+    node [shape=box, style="rounded", fontname="Arial"];
+
+    Main [label="Lab5.cpp"];
+    Editor [label="my_editor\n(.h / .cpp)"];
+    Table [label="my_table\n(.h / .cpp / .rc)"];
+    Shapes [label="Shape modules\n(point, line, rect, ellipse, lineOO, cube)"];
+
+    Main -> Editor;
+    Main -> Table;
+    Main -> Shapes;
+    Editor -> Shapes;
+    Editor -> Table [label="public interface"];
+}
