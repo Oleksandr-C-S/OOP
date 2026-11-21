@@ -38,12 +38,28 @@ void MyTable::Toggle(HWND parent, HINSTANCE hInstance)
         return;
     }
 
-    CreateDialogParamW(
+    HWND hDlg = CreateDialogParamW(
         hInstance,
         MAKEINTRESOURCEW(IDD_MYTABLE),
         parent,
         DlgProc,
         reinterpret_cast<LPARAM>(this));
+
+    if (hDlg != nullptr)
+    {
+        hDlg_ = hDlg;
+        ShowWindow(hDlg_, SW_SHOW);
+        UpdateWindow(hDlg_);
+        SetForegroundWindow(hDlg_);
+    }
+    else
+    {
+        MessageBoxW(
+            parent,
+            L"Не вдалося відкрити таблицю об'єктів.",
+            L"Помилка",
+            MB_OK | MB_ICONERROR);
+    }
 }
 
 void MyTable::Close()
