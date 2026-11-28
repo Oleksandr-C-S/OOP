@@ -1,0 +1,30 @@
+sequenceDiagram
+    actor User as Користувач
+    participant L as Lab6
+    participant O2 as Object2
+    participant C as Windows Clipboard
+    participant O3 as Object3
+
+    User->>L: Робота → Виконати
+    L->>User: Діалог nPoint, xMin, xMax, yMin, yMax
+    User->>L: Виконати
+    L->>L: FindWindow(Object2)
+    alt Object2 не запущений
+        L->>O2: WinExec(Object2.exe)
+    end
+    L->>O2: WM_COPYDATA + Params
+    O2->>O2: Генерує nPoint пар (x,y)
+    O2->>C: CF_UNICODETEXT
+    O2-->>L: PostMessage(WM_OBJECT2_DONE)
+    L->>L: FindWindow(Object3)
+    alt Object3 не запущений
+        L->>O3: WinExec(Object3.exe)
+    end
+    L->>O3: PostMessage(WM_OBJECT3_PROCESS)
+    O3->>C: Читає CF_UNICODETEXT
+    O3->>O3: Сортує точки за x і будує y=f(x)
+    O3-->>L: PostMessage(WM_OBJECT3_DONE)
+    L->>L: Автоматично розташовує три вікна
+    User->>L: Закриття Lab6
+    L-->>O2: WM_CLOSE
+    L-->>O3: WM_CLOSE
