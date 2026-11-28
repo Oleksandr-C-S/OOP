@@ -1,0 +1,27 @@
+#pragma code_page(65001)
+#include "resource.h"
+#include <windows.h>
+
+IDD_PARAMS DIALOGEX 0, 0, 235, 170
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Параметри — Lab6, варіант 0"
+FONT 9, "Segoe UI"
+BEGIN
+    LTEXT           "Кількість точок nPoint:", -1, 12, 14, 105, 12
+    EDITTEXT        IDC_NPOINT, 125, 12, 85, 14, ES_AUTOHSCROLL | ES_NUMBER
+
+    LTEXT           "xMin:", -1, 12, 40, 45, 12
+    EDITTEXT        IDC_XMIN, 70, 38, 60, 14, ES_AUTOHSCROLL
+    LTEXT           "xMax:", -1, 140, 40, 45, 12
+    EDITTEXT        IDC_XMAX, 175, 38, 35, 14, ES_AUTOHSCROLL
+
+    LTEXT           "yMin:", -1, 12, 66, 45, 12
+    EDITTEXT        IDC_YMIN, 70, 64, 60, 14, ES_AUTOHSCROLL
+    LTEXT           "yMax:", -1, 140, 66, 45, 12
+    EDITTEXT        IDC_YMAX, 175, 64, 35, 14, ES_AUTOHSCROLL
+
+    LTEXT           "Після натискання «Виконати» програма сама запустить Object2 та Object3.", -1, 12, 92, 198, 28
+
+    DEFPUSHBUTTON   "Виконати", IDOK, 74, 136, 70, 20
+    PUSHBUTTON      "Скасувати", IDCANCEL, 150, 136, 60, 20
+END
